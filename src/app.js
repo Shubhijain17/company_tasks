@@ -21,16 +21,6 @@ import userRouter from "./routers/user.routers.js";
 import { ApiError } from "./utills/ApiError.js";
 app.use('/api/v1/users', userRouter)
 
-// app.use((err, req, res, next) => {
-//     // Check if the error is an instance of ApiError
-//     if (err instanceof ApiError) {
-//         return res.status(err.statusCode).json({
-//             success: err.success,
-//             message: err.message,
-//             error: err.error
-//         });
-//     }
-// });
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error';
