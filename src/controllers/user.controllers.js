@@ -16,7 +16,6 @@ const registerUser = asyncHandler(async (req, res) => {
     })
     console.log(existedUser)
     if (existedUser) {
-        // res.json({success:false, message:"provide all details"}) -- 
         throw new ApiError(409, "User with email or username already  exists")
     }
 
@@ -35,9 +34,6 @@ const registerUser = asyncHandler(async (req, res) => {
         throw new ApiError(500, "Something went worng while registering user")
     }
     return res.status(201).json(createdUser)
-    // new ApiResponse(200, createdUser, "user regesterd sucessfully")
-    // )
-
 });
 
 const loginUser = asyncHandler(async (req, res) => {
