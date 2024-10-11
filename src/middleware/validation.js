@@ -24,7 +24,6 @@ const registerUserSchema = Joi.object({
     const { error } = registerUserSchema.validate(req.body);
     if (error) {
       console.log(error);
-      // 400 status code clearly communicates to the client that their request was incorrect.
       return res.status(400).send(error.details);
     } else {
       next();
